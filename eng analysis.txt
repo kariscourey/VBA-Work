@@ -1,0 +1,32 @@
+Sub EngAnalysis()
+
+' EngAnalysis Macro
+
+
+    Dim EngAnalysisWksht As Worksheet
+    Dim IPRLogWksht As Worksheet
+    
+    Set EngAnalysisWksht = ThisWorkbook.Worksheets("Engineering Analysis")
+    Set IPRLogWksht = ThisWorkbook.Worksheets("IPR Log")
+    
+    EngAnalysisWksht.Unprotect Password:="password"
+    IPRLogWksht.Unprotect Password:="password"
+
+        Range("AC5").Select
+        ActiveSheet.PivotTables("PivotTable1").PivotCache.Refresh
+        Range("AF6:AL6").Select
+        Selection.AutoFill Destination:=Range("AF6:AL3110")
+        Range("AF6:AL3110").Select
+        Range("T6:Z6").Select
+        Selection.AutoFill Destination:=Range("T6:Z4194")
+        Range("T6:Z4194").Select
+        Sheets("Engineering Analysis").Select
+        Range("C11").Select
+        ActiveSheet.PivotTables("PivotTable1").PivotCache.Refresh
+        
+    
+    EngAnalysisWksht.Protect Password:="password"
+    IPRLogWksht.Protect Password:="password"
+        
+    
+End Sub
