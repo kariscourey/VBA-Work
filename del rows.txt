@@ -1,9 +1,0 @@
-Sub DelRows()
-
-Application.ScreenUpdating = False
-Columns("B:B").SpecialCells(xlCellTypeBlanks).EntireRow.Delete
-Application.ScreenUpdating = True
-
-
-End Sub
-
