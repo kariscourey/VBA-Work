@@ -1,0 +1,33 @@
+ 
+Sub ClearRanges()
+
+    'declare worksheet, ranges
+    Dim ws As Worksheet
+    Dim r1 As Range, r2 As Range
+
+    'set screen updating to false
+    Application.ScreenUpdating = False
+    
+    'initialize worksheet
+    Set ws = ActiveSheet
+    
+    'initialize ranges
+    Set r1 = ws.Range("B3:S14")
+    Set r2 = ws.Range("B21:S32")
+    
+    'union ranges
+    Set Ranges = Union(r1, r2)
+
+    'clear contents
+    Ranges.ClearContents
+    
+    'clear color
+    Ranges.Interior.Color = RGB(255, 255, 255)
+    
+    'set scren updating to true
+    Application.ScreenUpdating = True
+    
+End Sub
+
+
+
