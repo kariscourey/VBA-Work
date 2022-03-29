@@ -1,0 +1,14 @@
+Sub update_manufacturer()
+
+Dim myRange As Range
+Dim myCell As Range
+
+Set myRange = Range("B1:B3657")
+
+For Each myCell In myRange
+    If IsEmpty(myCell) Then
+        myCell.Offset(1, -1).Value = myCell.Offset(0, 4).Value
+    End If
+Next myCell
+
+End Sub
