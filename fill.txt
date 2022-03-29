@@ -1,0 +1,16 @@
+
+Sub fill()
+
+    Dim cell As Range, SearchRange As Range
+
+    On Error Resume Next
+    Set SearchRange = Columns("A:A").SpecialCells(xlCellTypeBlanks)
+    On Error GoTo 0
+
+    If Not SearchRange Is Nothing Then
+        For Each cell In SearchRange
+
+            If cell.Row > 1 Then cell = cell.Offset(-1, 0).Value
+
+        Next cell
+    End If
