@@ -1,0 +1,19 @@
+'from https://www.excel-easy.com/vba/range-object.html
+
+Sub DeleteRows()
+    Dim rng As Range
+    Dim pos As Integer
+    Set rng = ActiveSheet.Range("D2:D13664")
+    
+    Application.ScreenUpdating = False
+    
+    For i = rng.Cells.Count To 1 Step -1
+        pos = InStr(LCase(rng.Item(i).Value), LCase("due"))
+        If pos > 0 Then
+            rng.Item(i).EntireRow.Delete
+        End If
+    Next i
+    
+    Application.ScreenUpdating = True
+    
+End Sub
